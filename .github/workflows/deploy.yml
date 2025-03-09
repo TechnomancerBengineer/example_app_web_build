@@ -15,22 +15,19 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          echo "API_KEY=${{ secrets.API_KEY }}" > .env
-          echo "APP_ID=${{ secrets.APP_ID }}" >> .env
-          echo "MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}" >> .env
-          echo "PROJECT_ID=${{ secrets.PROJECT_ID }}" >> .env
-          echo "AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }}" >> .env
-          echo "STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }}" >> .env
-          echo "MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }}" >> .env
+          echo "API_KEY=${{ secrets.API_KEY }}" > assets/assets/Keys.env
+          echo "APP_ID=${{ secrets.APP_ID }}" >> assets/assets/Keys.env
+          echo "MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}" >> assets/assets/Keys.env
+          echo "PROJECT_ID=${{ secrets.PROJECT_ID }}" >> assets/assets/Keys.env
+          echo "AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }}" >> assets/assets/Keys.env
+          echo "STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }}" >> assets/assets/Keys.env
+          echo "MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }}" >> assets/assets/Keys.env
 
       - name: Build web
-        run: |
-          # Add your build commands here, if any
-          # For example, if you have a build script, you can run it here
-          # ./build.sh
+        run: flutter build web --release
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: path/to/your/build/output
+          publish_dir: build/web

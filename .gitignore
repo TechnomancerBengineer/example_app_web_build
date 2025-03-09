@@ -1,2 +1,2 @@
 # Ignore environment keys
-assets/assets/Keys.env
+assets/assets/.env

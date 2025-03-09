@@ -15,19 +15,19 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          echo "API_KEY=${{ secrets.API_KEY }}" > assets/assets/Keys.env
-          echo "APP_ID=${{ secrets.APP_ID }}" >> assets/assets/Keys.env
-          echo "MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}" >> assets/assets/Keys.env
-          echo "PROJECT_ID=${{ secrets.PROJECT_ID }}" >> assets/assets/Keys.env
-          echo "AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }}" >> assets/assets/Keys.env
-          echo "STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }}" >> assets/assets/Keys.env
-          echo "MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }}" >> assets/assets/Keys.env
+          echo "API_KEY=${{ secrets.API_KEY }}" > assets/assets/.env
+          echo "APP_ID=${{ secrets.APP_ID }}" >> assets/assets/.env
+          echo "MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}" >> assets/assets/.env
+          echo "PROJECT_ID=${{ secrets.PROJECT_ID }}" >> assets/assets/.env
+          echo "AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }}" >> assets/assets/.env
+          echo "STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }}" >> assets/assets/.env
+          echo "MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }}" >> assets/assets/.env
 
       - name: Build web
         run: flutter build web --release
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-main@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build/web

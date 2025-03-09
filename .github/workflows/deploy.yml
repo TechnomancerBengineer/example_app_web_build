@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up environment variables
+        run: |
+          echo "API_KEY=${{ secrets.API_KEY }}" > .env
+          echo "APP_ID=${{ secrets.APP_ID }}" >> .env
+          echo "MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}" >> .env
+          echo "PROJECT_ID=${{ secrets.PROJECT_ID }}" >> .env
+          echo "AUTH_DOMAIN=${{ secrets.AUTH_DOMAIN }}" >> .env
+          echo "STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET }}" >> .env
+          echo "MEASUREMENT_ID=${{ secrets.MEASUREMENT_ID }}" >> .env
+
+      - name: Build web
+        run: |
+          # Add your build commands here, if any
+          # For example, if you have a build script, you can run it here
+          # ./build.sh
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: path/to/your/build/output

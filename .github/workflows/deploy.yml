@@ -15,6 +15,7 @@ jobs:
 
       - name: Set up environment variables
         run: |
+          mkdir -p assets/assets
           echo "API_KEY=${{ secrets.API_KEY }}" > assets/assets/.env
           echo "APP_ID=${{ secrets.APP_ID }}" >> assets/assets/.env
           echo "MESSAGING_SENDER_ID=${{ secrets.MESSAGING_SENDER_ID }}" >> assets/assets/.env

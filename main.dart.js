@@ -23615,7 +23615,7 @@ var $async$Vr=A.K(function(a,b){if(a===1)return A.G(b,r)
 while(true)switch(s){case 0:if($.a2==null)A.apG()
 $.a2.toString
 s=2
-return A.N($.n8().xH(0,"assets/Keys.env"),$async$Vr)
+return A.N($.n8().xH(0,"assets/.env"),$async$Vr)
 case 2:s=3
 return A.N(A.a0d(A.aCS()),$async$Vr)
 case 3:if($.a2==null)A.apG()

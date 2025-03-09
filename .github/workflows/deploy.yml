@@ -30,7 +30,7 @@ jobs:
           # ./build.sh
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-main@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: path/to/your/build/output
